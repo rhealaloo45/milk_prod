@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Milk Production Predictor</title>
+</head>
+<body>
+    <h1>Milk Production Prediction</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction is not None %}
+        <h2>Predicted Daily Milk Production: {{ prediction }} liters</h2>
+    {% endif %}
+</body>
+</html>

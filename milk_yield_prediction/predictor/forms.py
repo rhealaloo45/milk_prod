@@ -1,13 +1,46 @@
 from django import forms
 
-class MilkYieldForm(forms.Form):
-    day_1 = forms.FloatField(label="Day 1 Yield")
-    day_2 = forms.FloatField(label="Day 2 Yield")
-    day_3 = forms.FloatField(label="Day 3 Yield")
-    day_4 = forms.FloatField(label="Day 4 Yield")
-    day_5 = forms.FloatField(label="Day 5 Yield")
-    day_6 = forms.FloatField(label="Day 6 Yield")
-    day_7 = forms.FloatField(label="Day 7 Yield")
-    day_8 = forms.FloatField(label="Day 8 Yield")
-    day_9 = forms.FloatField(label="Day 9 Yield")
-    day_10 = forms.FloatField(label="Day 10 Yield")
+class PredictionForm(forms.Form):
+    age = forms.IntegerField(label="Cattle Age", min_value=1, help_text="Enter the age of the cattle in years.")
+    
+    breed = forms.ChoiceField(
+        label="Breed",
+        choices=[
+            ("0", "hfC"), 
+            ("1", "jerseyC"), 
+            ("2", "gir")
+        ],
+        help_text="Select the breed of the cattle."
+    )
+    
+    health_status = forms.ChoiceField(
+        label="Health Status",
+        choices=[
+            ("0", "Fair"), 
+            ("1", "Excellent"), 
+            ("2", "Good")
+        ],
+        help_text="Select the current health status of the cattle."
+    )
+    
+    housing_type = forms.ChoiceField(
+        label="Housing Type",
+        choices=[
+            ("0", "Semi tied-up"), 
+            ("1", "Open grazing"), 
+            ("2", "Loose housing")
+        ],
+        help_text="Select the type of housing used for the cattle."
+    )
+    
+    vaccinated = forms.BooleanField(
+        label="Vaccinated",
+        required=False,
+        help_text="Check if the cattle is vaccinated."
+    )
+    
+    dewormed = forms.BooleanField(
+        label="Dewormed",
+        required=False,
+        help_text="Check if the cattle has been dewormed."
+    )

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+</head>
+<body>
+    <h1>Milk Production Prediction</h1>
+    {% if prediction %}
+        <p>The predicted daily milk production is: <strong>{{ prediction }}</strong> liters.</p>
+    {% else %}
+        <p>No prediction available.</p>
+    {% endif %}
+    <a href="{% url 'predict_milk' %}">Go Back</a>
+</body>
+</html>
